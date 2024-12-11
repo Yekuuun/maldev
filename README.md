@@ -30,7 +30,7 @@ This repository was created due to my interest for malware development. I consid
 - `Rc4 (using SystemFunc032)`
 - `ChaCha20`
 
-**Payload Encryption**
+**Payload Obfuscation**
 - `Ipv4 obfuscation` Obfuscate payload using ipv4 formats + deobfuscation
 
 **GetFuncAddress**
