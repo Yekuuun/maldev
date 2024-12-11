@@ -4,9 +4,49 @@
  * 
  * Notes : this file contains a custom GetModuleHandleW & GetProcessAddress implementation avoiding using windows.h header file.
  * Notes : I didn't use any imports.
+ * 
+ * Notes : this code might not pe super clean but it works fine;)
  */
 
 #include "ntheader.hpp"
+
+/**
+ * @returns length of a LPCSTR string
+ */
+size_t CustomStrLenA(LPCSTR str){
+    LPCSTR ptrStr = str;
+    while(*str != '\0')
+    {
+        str++;
+    }
+    return str - ptrStr;
+}
+
+/**
+ * Compater 2 strings (LPCSTR)
+ */
+BOOL CompareStringsA(LPCSTR str1, LPCSTR str2){
+    if(str1 == nullptr || str2 == nullptr)
+    {
+        return false;
+    }
+
+    if(CustomStrLenA(str1) != CustomStrLenA(str2))
+    {
+        return false;
+    }
+
+    while(*str1 != '\0' && *str2 != '\0')
+    {
+        if(*str1 != *str2)
+        {
+            return false;
+        }
+        str2++;
+        str1++;
+    }
+    return true;
+}
 
 BOOL StringContains(wchar_t* haystack, wchar_t* needle){
     while(*haystack && (*haystack == *needle)){
@@ -59,6 +99,46 @@ HMODULE GetModuleHandleW(LPCWSTR moduleName){
     return nullptr;
 }
 
+/**
+ * Base GetProcAddress function reimplementing
+ * @param hModule retrieved from GetModuleHandleW (address of loaded DLL)
+ * @param procName name of function to be retrieved (ex : NtQuerySystemInformation)
+ * @return base address of function found.
+ */
+PVOID GetProcAddress(HMODULE hModule, LPCSTR procName){
+    if(hModule == nullptr || procName == nullptr){
+        return nullptr;
+    }
+
+    BYTE* dllAddress = (BYTE*)hModule;
+
+    PIMAGE_DOS_HEADER ptrDosHeader = (PIMAGE_DOS_HEADER)hModule;
+
+
+    PIMAGE_NT_HEADERS64 ptrNtHeader = (PIMAGE_NT_HEADERS64)(dllAddress + ptrDosHeader->e_lfanew);
+    PIMAGE_OPTIONAL_HEADER64 ptrOptionnalHeader = &ptrNtHeader->OptionalHeader;
+
+    PIMAGE_EXPORT_DIRECTORY ptrImageExportDirectory = (PIMAGE_EXPORT_DIRECTORY)((BYTE*)hModule + ptrOptionnalHeader->DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
+
+        //address of AddressOfNames
+    auto rvaNames = (DWORD*)(dllAddress + ptrImageExportDirectory->AddressOfNames);
+    auto rvaOrdinalsNames = (WORD*)(dllAddress + ptrImageExportDirectory->AddressOfNameOrdinals);
+    auto rvaFunction = (DWORD*)(dllAddress + ptrImageExportDirectory->AddressOfFunctions);
+
+    //looping through names exported
+    for(int i = 0; i < ptrImageExportDirectory->NumberOfNames; i++)
+    {
+        char* functionName = (char*)(dllAddress + rvaNames[i]);
+        //compare strings
+        if(CompareStringsA(functionName, procName))
+        {
+            return (LPVOID)(dllAddress + rvaFunction[rvaOrdinalsNames[i]]);
+        }
+    }
+
+    return nullptr;
+}
+
 //test.
 int main(){
     LPCWSTR dllName = const_cast<LPCWSTR>(L"ntdll.dll");
@@ -71,6 +151,17 @@ int main(){
     else {
         printf("Failed to find module: %ls\n", dllName);
     }
+
+    PVOID procAddress = GetProcAddress(dllAddress, "NtQuerySystemInformation");
+
+    if(procAddress != nullptr){
+        printf("address of proc : %p \n", procAddress);
+    }
+    else {
+        printf("Failed to find procAddress: %ls\n", dllName);
+    }
+
+    getchar();
 
     return 0;
 }

@@ -31,27 +31,6 @@ typedef unsigned long long ULONGLONG;
 typedef unsigned __int64 ULONG_PTR;
 typedef LONG KPRIORITY, *PKPRIORITY;
 
-
-//WIN API definition
-#ifndef WINAPI
-#define WINAPI __stdcall
-#endif
-
-#define NTAPI __stdcall
-
-typedef LONG NTSTATUS;
-
-#define NT_SUCCESS(Status) ((NTSTATUS)(Status) >= 0)
-
-#define STATUS_SUCCESS ((NTSTATUS)0x00000000)
-#define STATUS_INFO_LENGTH_MISMATCH ((NTSTATUS)0xC0000004)
-#define STATUS_BUFFER_TOO_SMALL ((NTSTATUS)0xC0000023)
-#define STATUS_UNSUCCESSFUL ((NTSTATUS)0xC0000001)
-#define STATUS_ACCESS_VIOLATION ((NTSTATUS)0xC0000005)
-#define STATUS_INVALID_PARAMETER ((NTSTATUS)0xC000000D)
-
-//----------------------------------------------
-
 extern "C" unsigned __int64 __readgsqword(unsigned long Offset);
 
 #ifdef _WIN64
