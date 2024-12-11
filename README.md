@@ -1,13 +1,13 @@
 ```C
-                       _____ ______   ________  ___       ________  _______   ___      ___ 
-                      |\   _ \  _   \|\   __  \|\  \     |\   ___ \|\  ___ \ |\  \    /  /|
-                      \ \  \\\__\ \  \ \  \|\  \ \  \    \ \  \_|\ \ \   __/|\ \  \  /  / /
-                       \ \  \\|__| \  \ \   __  \ \  \    \ \  \ \\ \ \  \_|/_\ \  \/  / / 
-                        \ \  \    \ \  \ \  \ \  \ \  \____\ \  \_\\ \ \  \_|\ \ \    / /  
-                         \ \__\    \ \__\ \__\ \__\ \_______\ \_______\ \_______\ \__/ /   
-                          \|__|     \|__|\|__|\|__|\|_______|\|_______|\|_______|\|__|/    
-                                                                                           
-                                  -------base code samples for malware dev------   
+                     _____ ______   ________  ___       ________  _______   ___      ___ 
+                    |\   _ \  _   \|\   __  \|\  \     |\   ___ \|\  ___ \ |\  \    /  /|
+                    \ \  \\\__\ \  \ \  \|\  \ \  \    \ \  \_|\ \ \   __/|\ \  \  /  / /
+                     \ \  \\|__| \  \ \   __  \ \  \    \ \  \ \\ \ \  \_|/_\ \  \/  / / 
+                      \ \  \    \ \  \ \  \ \  \ \  \____\ \  \_\\ \ \  \_|\ \ \    / /  
+                       \ \__\    \ \__\ \__\ \__\ \_______\ \_______\ \_______\ \__/ /   
+                        \|__|     \|__|\|__|\|__|\|_______|\|_______|\|_______|\|__|/    
+                                                                                         
+                                -------base code samples for malware dev------   
 
 ```
 
@@ -22,6 +22,7 @@ base code samples &amp; usefull code snippets i wrote during maldev academy lear
 - `GetModuleHandleW` : Get address of loaded module in memory
 - `GetProcAddress` : Retrieve address of function in a loaded module
 - `BaseInject` : Base shellcode injection using classic WinAPI functions (x64 payload)
+- `NTInject` : Base shellcode injection using NTAPI (x64 payload)
 
 ---
 
