@@ -18,7 +18,7 @@ base code samples &amp; usefull code snippets i wrote during maldev academy lear
 **Utils :**
 - `PrintHex` : Printing hex data clean
 
-**Windev :**
+**Maldev :**
 - `GetModuleHandleW` : Get address of loaded module in memory
 - `GetProcAddress` : Retrieve address of function in a loaded module
 - `BaseInject` : Base shellcode injection using classic WinAPI functions (x64 payload)
