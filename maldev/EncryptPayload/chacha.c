@@ -34,26 +34,26 @@ static VOID PrintHexData(LPCSTR Name, PBYTE Data, SIZE_T Size) {
 /**
  * Notes : ChaCha must used payload % 64 == 0;
  */
-static BOOL isValidPayload(SIZE_T sPayloadSize){
+static BOOL IsValidPayloadSize(SIZE_T sPayloadSize){
     return sPayloadSize % 64 == 0;
 }
 
 /**
  * Calculating padding needed.
  */
-static SIZE_T paddingNeeded(SIZE_T sPayloadSize){
+static SIZE_T PaddingNeeded(SIZE_T sPayloadSize){
     return (64 - (sPayloadSize % 64));
 }
 
 /**
  * return ptr to padded payload.
  */
-PBYTE allocatePadding(PBYTE pPayload, SIZE_T *sPayloadSize){
-    if(isValidPayload(*sPayloadSize)){
+PBYTE AllocatePadding(PBYTE pPayload, SIZE_T *sPayloadSize){
+    if(IsValidPayloadSize(*sPayloadSize)){
         return pPayload;
     }
     else {
-        SIZE_T paddingSize = paddingNeeded(*sPayloadSize);
+        SIZE_T paddingSize = PaddingNeeded(*sPayloadSize);
         SIZE_T newSize = *sPayloadSize + paddingSize;
 
         PBYTE newPayload = realloc(pPayload, newSize);
@@ -148,7 +148,7 @@ int main() {
     memcpy(paddedPayload, raw_payload_data, payloadSize);
 
     // Payload with padding.
-    paddedPayload = allocatePadding(paddedPayload, &payloadSize);
+    paddedPayload = AllocatePadding(paddedPayload, &payloadSize);
     if (paddedPayload == NULL) {
         printf("[!] An error occurred creating new padded payload. \n");
         return EXIT_FAILURE;
