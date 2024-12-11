@@ -30,6 +30,9 @@ This repository was created due to my interest for malware development. I consid
 - `Rc4 (using SystemFunc032)`
 - `ChaCha20`
 
+**Payload Encryption**
+- `Ipv4 obfuscation` Obfuscate payload using ipv4 formats + deobfuscation
+
 **GetFuncAddress**
 - `GetModuleHandleW` : Get address of loaded module in memory
 - `GetProcAddress` : Retrieve address of function in a loaded module
