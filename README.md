@@ -11,7 +11,9 @@
 
 ```
 
-base code samples &amp; usefull code snippets i wrote during maldev academy learning path.
+> [!Important]
+This repository was created due to my interest for malware development. I consider myself as a beginner and you may be surprised for some code samples. some code are duplicated in single cases such for payload encryption. The purpose is to speak about several subjects I dive into with maldev academy learning ressources -> <a href="https://github.com/Maldev-Academy">Maldev academy</a>
+
 
 ## You'll find : 
 
@@ -38,10 +40,8 @@ base code samples &amp; usefull code snippets i wrote during maldev academy lear
 
 ---
 
-### Notes : 
-
-Do not pay attention to code property (shared functions etc.) I only used a utils.h file for <windows.h> & base payloads usage. I've planned to create a base lib with utility functions later.
-
+> [!Warning]
+> This repository was made for learning purpose.
 
 ---
 
