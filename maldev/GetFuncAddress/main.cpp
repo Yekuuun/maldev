@@ -139,6 +139,62 @@ PVOID GetProcAddress(HMODULE hModule, LPCSTR procName){
     return nullptr;
 }
 
+/**
+ * List current running processes using NtQuerySystemInformation
+ */
+BOOL GetProcessInformation(){
+    wchar_t dllName[]      = L"ntdll.dll";
+    ULONG sizePtr          = 0;
+    ULONG bufferSize       = 0;
+    LPVOID buffer          = nullptr;
+
+    //getting address of NtQuerySystemInformation using custom GetModuleHandle() & GetProcAddress()
+    PNTQUERYSYSTEMINFORMATION ptrNtQuerySystemInformation = (PNTQUERYSYSTEMINFORMATION)GetProcAddress(GetModuleHandleW(dllName), "NtQuerySystemInformation");
+
+    NTSTATUS status = ptrNtQuerySystemInformation(SystemProcessInformation, nullptr, sizePtr, &bufferSize);
+
+    while(status == STATUS_INFO_LENGTH_MISMATCH)
+    {
+        buffer = malloc(bufferSize);
+        sizePtr = bufferSize;
+        if(buffer == nullptr)
+        {
+            std::cout << "[-] error allocating memory" << std::endl;
+            return false;
+        }
+        status = ptrNtQuerySystemInformation(SystemProcessInformation, buffer, sizePtr, &bufferSize);
+    }
+
+    if(status != STATUS_SUCCESS)
+    {
+        std::cout << "[-] error calling NtQuerySystemInformation" << std::endl;
+        return false;
+    }
+
+    PSYSTEM_PROCESS_INFORMATION ptrProcessInfo = (PSYSTEM_PROCESS_INFORMATION)buffer;
+
+    if(ptrProcessInfo == nullptr)
+    {
+        std::cout << "[-] nullptr for process informations" <<std::endl;
+        free(buffer);
+        return false;
+    }
+
+    std::cout << "\nListing Processes running using NtQuerySystemInformation :" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    while(ptrProcessInfo->NextEntryOffset)
+    {
+        ULONG processId = (ULONG)(ULONG_PTR )ptrProcessInfo->UniqueProcessId;
+        std::cout << std::dec;
+        std::cout << "[*] PROCESS ID : " << processId << std::endl;
+
+        ptrProcessInfo = (PSYSTEM_PROCESS_INFORMATION)((ULONG_PTR)ptrProcessInfo + ptrProcessInfo->NextEntryOffset);
+    }
+
+    free(buffer);
+    return true;
+}
+
 //test.
 int main(){
     LPCWSTR dllName = const_cast<LPCWSTR>(L"ntdll.dll");
@@ -161,7 +217,11 @@ int main(){
         printf("Failed to find procAddress: %ls\n", dllName);
     }
 
-    getchar();
+    BOOL listProcess = GetProcessInformation();
+    if(!listProcess)
+    {
+        return EXIT_FAILURE;
+    }
 
     return 0;
 }
