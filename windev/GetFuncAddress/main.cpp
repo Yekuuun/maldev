@@ -120,7 +120,7 @@ PVOID GetProcAddress(HMODULE hModule, LPCSTR procName){
 
     PIMAGE_EXPORT_DIRECTORY ptrImageExportDirectory = (PIMAGE_EXPORT_DIRECTORY)((BYTE*)hModule + ptrOptionnalHeader->DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
 
-        //address of AddressOfNames
+    //address of AddressOfNames
     auto rvaNames = (DWORD*)(dllAddress + ptrImageExportDirectory->AddressOfNames);
     auto rvaOrdinalsNames = (WORD*)(dllAddress + ptrImageExportDirectory->AddressOfNameOrdinals);
     auto rvaFunction = (DWORD*)(dllAddress + ptrImageExportDirectory->AddressOfFunctions);
