@@ -47,4 +47,5 @@ This repository was created due to my interest for malware development. I consid
 
 ### Thanks to : 
 
-<strong><a href="https://github.com/orgs/Maldev-Academy/repositories">Maldev Academy</a></strong>
+- <strong><a href="https://github.com/orgs/Maldev-Academy/repositories">Maldev Academy</a></strong>
+- <strong><a href="https://github.com/hasherezade">Hasherezade</a></strong>
