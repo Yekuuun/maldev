@@ -43,6 +43,7 @@ This repository was created due to my interest for malware development. I consid
 
 **Thread Hijacking**
 - `LocalHijack` : Base locale thread hijacking (x64 calc payload)
+- `RemoteHijack` : Base thread hijacking using SUSPENDED_PROCESS (x64 payload)
 
 **Work in progress...** 🛠️
 
