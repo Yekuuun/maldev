@@ -20,7 +20,7 @@ BOOL CreateSuspendedProcess(IN LPCSTR lpProcessName, OUT DWORD* dwProcessId, OUT
     CHAR lpPath [MAX_PATH * 2];
     CHAR WinDr  [MAX_PATH];
 
-    STARTUPINFO			    Si = { 0 };
+    STARTUPINFOA			    Si = { 0 };
 	PROCESS_INFORMATION		Pi = { 0 };
 
 	// Cleaning the structs by setting the member values to 0
