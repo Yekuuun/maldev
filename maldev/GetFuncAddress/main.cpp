@@ -48,6 +48,9 @@ BOOL CompareStringsA(LPCSTR str1, LPCSTR str2){
     return true;
 }
 
+/**
+ * Base check if string contains another.
+ */
 BOOL StringContains(wchar_t* haystack, wchar_t* needle){
     while(*haystack && (*haystack == *needle)){
         haystack++;
@@ -141,6 +144,8 @@ PVOID GetProcAddress(HMODULE hModule, LPCSTR procName){
 
 /**
  * List current running processes using NtQuerySystemInformation
+ * 
+ * @return List of PID's of running processes.
  */
 BOOL GetProcessInformation(){
     wchar_t dllName[]      = L"ntdll.dll";
