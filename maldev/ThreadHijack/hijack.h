@@ -1,6 +1,6 @@
 #pragma once
 
-#include <iostream>
+#include <stdio.h>
 #include <windows.h>
 
 // x64 calc payload => maldev sample.

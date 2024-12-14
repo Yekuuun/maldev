@@ -4,7 +4,7 @@
  * 
  * Running a base thread hijacking.
  */
-#include "hijack.hpp"
+#include "hijack.h"
 
 /**
  * @param hThread => handle to a suspended thread.

