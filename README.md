@@ -31,11 +31,11 @@ This repository was created due to my interest for malware development. I consid
 - `ChaCha20`
 
 **Payload Obfuscation**
-- `Ipv4 obfuscation` Obfuscate payload using ipv4 formats + deobfuscation
+- `Ipv4 obfuscation` Obfuscate payload using ipv4 formats + deobfuscation (base example on how to transform a payload into legit data)
 
 **GetFuncAddress**
-- `GetModuleHandleW` : Get address of loaded module in memory
-- `GetProcAddress` : Retrieve address of function in a loaded module
+- `GetModuleHandleW` : Custom implementation of GetModuleHandleW( ) function
+- `GetProcAddress` : Custom implementation of GetProcAddress( ) function
 
 **Shellcode Injections**
 - `BaseInject` : Base shellcode injection using classic WinAPI functions (x64 payload)
