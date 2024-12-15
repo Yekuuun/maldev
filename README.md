@@ -49,6 +49,10 @@ This repository was created due to my interest for malware development. I consid
 - `Local APC Inject` : Base APC injection in current running process (x64 payload)
 - `Early Bird APC Inject` : Base remote APC injection (target process with x64 payload)
 
+**Mapping Injection**
+- `Local mapping injection` : Base payload injection using local mapping method (x64 payload)
+- `Remote mapping injection` : Base remote mapping injection with x64 payload (using MapViewOfFile3)
+
 **Work in progress...** 🛠️
 
 ---
