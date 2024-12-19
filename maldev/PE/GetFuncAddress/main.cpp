@@ -6,6 +6,8 @@
  * Notes : I didn't use any imports.
  * 
  * Notes : this code might not pe super clean but it works fine;)
+ * 
+ * Notes => USE HASHING TECHNIQUES FOR FUNCTION NAMES OBFUSCATION !
  */
 
 #include "ntheader.hpp"

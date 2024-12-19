@@ -30,8 +30,9 @@ This repository was created due to my interest for malware development. I consid
 - `Rc4 (using SystemFunc032)`
 - `ChaCha20`
 
-**Payload Obfuscation**
-- `Ipv4 obfuscation` Obfuscate payload using ipv4 formats + deobfuscation (base example on how to transform a payload into legit data)
+**Obfuscation**
+- `Ipv4 obfuscation` : Obfuscate payload using ipv4 formats + deobfuscation
+- `String hashing` : Base hashing techniques for strings.
 
 **Shellcode Injections**
 - `BaseInject` : Base shellcode injection using classic WinAPI functions (x64 payload)
@@ -56,8 +57,12 @@ This repository was created due to my interest for malware development. I consid
 - `Parser` : Base code sample for how to parse a PE file & display informations about it.
 
 **Custom WINAPI**
-- `GetModuleHandleW` : Custom implementation of GetModuleHandleW( ) function
-- `GetProcAddress` : Custom implementation of GetProcAddress( ) function
+- `GetModuleHandleW` : Custom implementation of GetModuleHandleW( ) - no imports
+- `GetProcAddress` : Custom implementation of GetProcAddress( ) - no imports
+
+> [!Note]
+> Consider using hashing techniques inside of GetProcAddress avoiding usage of raw strings params in custom GetModuleHandleW & GetProcAddress calls by using hash comparison method
+
 
 **Work in progress...** 🛠️
 

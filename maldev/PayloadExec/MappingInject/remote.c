@@ -25,7 +25,7 @@ typedef PVOID (NTAPI *PMAPVIEWOFFILE3)(
 
 
 /**
- * Get ptr to MapViewOfFile2 function from kernel32
+ * Get ptr to MapViewOfFile3 function from kernel32
  */
 PMAPVIEWOFFILE3 GetMapViewOfFileAddr(){
     HMODULE         hLib = NULL;
