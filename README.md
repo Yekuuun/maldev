@@ -54,6 +54,8 @@ This repository was created due to my interest for malware development. I consid
 
 **PE**
 - `Parser` : Base code sample for how to parse a PE file & display informations about it.
+
+**Custom WINAPI**
 - `GetModuleHandleW` : Custom implementation of GetModuleHandleW( ) function
 - `GetProcAddress` : Custom implementation of GetProcAddress( ) function
 
