@@ -53,6 +53,9 @@ This repository was created due to my interest for malware development. I consid
 - `Local mapping injection` : Base payload injection using local mapping method (x64 payload)
 - `Remote mapping injection` : Base remote mapping injection with x64 payload (using MapViewOfFile3)
 
+**Spoofing**
+- `PPid spoofing` : Base PPid spoofing (POC) spoof other process PID for new process creation
+
 **Work in progress...** 🛠️
 
 ---
