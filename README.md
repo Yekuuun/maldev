@@ -63,12 +63,13 @@ This repository was created due to my interest for malware development. I consid
 > [!Note]
 > Consider using hashing techniques inside of GetProcAddress avoiding usage of raw strings params in custom GetModuleHandleW & GetProcAddress calls by using hash comparison method
 
+<br>
+
 **Anti-debug**
 - `BeingDebugged` : Base functions & logic to detect if current process is being debugged.
+- `SelfDeleting` : Base code sample showing current process running deletion.
 
-**Work in progress...** 🛠️
-
----
+<br>
 
 > [!Warning]
 > This repository was made for learning purpose.
