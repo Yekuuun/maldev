@@ -65,14 +65,9 @@ This repository was created due to my interest for malware development. I consid
 
 <br>
 
-**Anti-debug**
+**Anti Debug**
 - `BeingDebugged` : Base functions & logic to detect if current process is being debugged.
 - `SelfDeleting` : Base code sample showing current process running deletion.
-
-<br>
-
-> [!Warning]
-> This repository was made for learning purpose.
 
 ---
 
@@ -80,3 +75,8 @@ This repository was created due to my interest for malware development. I consid
 
 - <strong><a href="https://github.com/orgs/Maldev-Academy/repositories">Maldev Academy</a></strong>
 - <strong><a href="https://github.com/hasherezade">Hasherezade</a></strong>
+
+---
+
+> [!Warning]
+> This repository was made for learning purpose.
