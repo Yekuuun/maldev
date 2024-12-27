@@ -19,11 +19,11 @@ static VOID XorByOneKey(IN PBYTE pShellcode, IN SIZE_T sShellcodeSize, IN BYTE k
  * XOR using input keys.
  */
 static VOID XorByInputKeys(IN PBYTE pShellcode, IN SIZE_T sShellcodeSize, IN PBYTE pKey, IN SIZE_T sKeySize){
-    for(size_t i = 0, j = 0; i < sShellcodeSize; i++){
+    for(size_t i = 0, j = 0; i < sShellcodeSize; i++, j++){
         if(j > sKeySize){
             j = 0;
         }
-        pShellcode[i] = pShellcode[i] ^ pKey[i];
+        pShellcode[i] = pShellcode[i] ^ pKey[j];
     }
 }
 
