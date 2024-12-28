@@ -69,6 +69,8 @@ This repository was created due to my interest for malware development. I consid
 - `BeingDebugged` : Base functions & logic to detect if current process is being debugged.
 - `SelfDeleting` : Base code sample showing current process running deletion.
 
+<br>
+
 **NTDLL Unhooking**
 - `FromDisk` : Base implementation of NTDLL Unhooking from disk.
 - `FromKnownDlls` : Retrieving NTDLL from KnownDll's
