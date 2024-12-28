@@ -70,7 +70,12 @@ This repository was created due to my interest for malware development. I consid
 - `SelfDeleting` : Base code sample showing current process running deletion.
 
 **NTDLL Unhooking**
-- `FromDisk` : Base implementationg of NTDLL Unhooking from disk.
+- `FromDisk` : Base implementation of NTDLL Unhooking from disk.
+- `FromKnownDlls` : Retrieving NTDLL from KnownDll's
+
+> [!Note]
+> There is a lot of other techniques to implements. refer to Maldev academy for it.
+
 
 ---
 
