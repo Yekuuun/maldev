@@ -78,6 +78,9 @@ This repository was created due to my interest for malware development. I consid
 > [!Note]
 > There is a lot of other techniques to implements. refer to Maldev academy for it.
 
+<br>
+
+**Thanks for reading.**
 
 ---
 
